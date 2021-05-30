@@ -32,13 +32,19 @@ def int_romanos(n):
             if n.count(alg) > 3:
                 return "Você inseriu um valor inválido."
             else:
-                # Caso o número seja menor que o seguinte e seja 1, 10 ou 100,
-                # subtraia-o do num_final (valor que será retornado)
-                if n[n.index(alg)+1] > alg and alg == 1 or alg == 10 or alg == 100:
-                        num_final -= alg
-                # Caso o número seja maior ou igual que o seguinte, some ao num_final
-                elif n[n.index(alg)+1] <= alg:
-                        num_final += alg
+                # Caso o número analisado seja o último da array, some-o
+                if n.index(alg) == len(n-1):
+                    num_final += alg
+                # Caso ainda existam mais números na frente, rode os ifs abaixo
+                else:
+                    # Caso o número seja menor que o seguinte e seja 1, 10 ou 100,
+                    # subtraia-o do num_final (valor que será retornado)
+                    if n[n.index(alg)+1] > alg and alg == 1 or alg == 10 or alg == 100:
+                            num_final -= alg
+                    # Caso o número seja maior ou igual que o seguinte, some ao num_final
+                    elif n[n.index(alg)+1] <= alg:
+                            num_final += alg
+
     # Retorna o valor já completo e tratado caso tudo esteja certo.
     return num_final
 

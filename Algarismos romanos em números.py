@@ -31,16 +31,21 @@ def int_romanos(n):
             # Caso existam mais de 3 de um mesmo algarismo, o valor será inválido
             if n.count(alg) > 3:
                 return "Você inseriu um valor inválido."
+            elif n.count(alg) > 1 and str(alg) in "500":
+                return "Você inseriu um valor inválido."
             else:
                 # Caso o número analisado seja o último da array, some-o
-                if n.index(alg) == len(n-1):
+                if n.index(alg) == len(n)-1:
                     num_final += alg
                 # Caso ainda existam mais números na frente, rode os ifs abaixo
                 else:
                     # Caso o número seja menor que o seguinte e seja 1, 10 ou 100,
                     # subtraia-o do num_final (valor que será retornado)
-                    if n[n.index(alg)+1] > alg and alg == 1 or alg == 10 or alg == 100:
+                    if n[n.index(alg)+1] > alg:
+                        if str(alg) in "100":
                             num_final -= alg
+                        else:
+                            return "Você inseriu um valor inválido."
                     # Caso o número seja maior ou igual que o seguinte, some ao num_final
                     elif n[n.index(alg)+1] <= alg:
                             num_final += alg
@@ -51,4 +56,4 @@ def int_romanos(n):
 # Rodando o código
 while True:
     perg = input("Coloque um valor em algarismos romanos:\n _ ")
-    print("=-"*30 + f"{int_romanos(alg_romanos(perg))}" + "=-"*30)
+    print("=-"*30 + f"\n{int_romanos(alg_romanos(perg))}\n" + "=-"*30)

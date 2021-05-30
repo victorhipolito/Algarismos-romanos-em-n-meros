@@ -41,15 +41,13 @@ def int_romanos(n):
                 else:
                     # Caso o número seja menor que o seguinte e seja 1, 10 ou 100,
                     # subtraia-o do num_final (valor que será retornado)
-                    if n[n.index(alg)+1] > alg:
-                        if str(alg) in "100":
-                            num_final -= alg
-                        else:
-                            return "Você inseriu um valor inválido."
+                    if n[n.index(alg)+1] > alg and str(alg) in "100":
+                        num_final -= alg
                     # Caso o número seja maior ou igual que o seguinte, some ao num_final
                     elif n[n.index(alg)+1] <= alg:
                             num_final += alg
-
+                    else:
+                        return "Você inseriu um valor inválido."
     # Retorna o valor já completo e tratado caso tudo esteja certo.
     return num_final
 

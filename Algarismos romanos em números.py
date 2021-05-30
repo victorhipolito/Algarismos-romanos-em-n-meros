@@ -42,3 +42,7 @@ def int_romanos(n):
     # Retorna o valor já completo e tratado caso tudo esteja certo.
     return num_final
 
+# Rodando o código
+while True:
+    perg = input("Coloque um valor em algarismos romanos:\n _ ")
+    print("=-"*30 + f"{int_romanos(alg_romanos(perg))}" + "=-"*30)
